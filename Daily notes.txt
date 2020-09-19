@@ -1,0 +1,790 @@
+10-09-2020
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ a=8
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ b=10
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ echo $a + $b
+8 + 10
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ $(a+b)
+bash: a+b: command not found
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ echo $(a+b)
+bash: a+b: command not found
+
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ echo $((a+b))
+18
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ [ 100 -eq 50]; echo $?
+bash: [: missing `]'
+2
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ [ 100 -eq 100]; echo $?
+bash: [: missing `]'
+2
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ [ 100 -eq 100 ]; echo $?
+0
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ [ 100 -eq 50 ]; echo $?
+1
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ echo [ 10 -eq 20 ]
+[ 10 -eq 20 ]
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ [ "a" = "b" ]; echo $?
+1
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ [ "a" = "a" ]; echo $?
+0
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ $ (( $a + $b))
+bash: syntax error near unexpected token `('
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ $(( $a + $b))
+bash: 18: command not found
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ $(( $a + $b))
+bash: 18: command not found
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ #!/bin/bash -x
+if [ $n -lt 10 ];
+then
+echo "It is a one digit number"
+else
+echo "It is not a one digit number"
+fi
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ #Simple If Demo
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ echo "Please enter a number"
+Please enter a number
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ read n
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ then
+bash: syntax error near unexpected token `then'
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ echo "It is a one digit number"
+It is a one digit number
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ else
+bash: syntax error near unexpected token `else'
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ echo "It is not a one digit number"
+It is not a one digit number
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano ifelse
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano ifelse.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./ ifelse.sh
+bash: ./: Is a directory
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./ifelse.sh
++ echo 'Please enter a number'
+Please enter a number
++ read n
+3
++ '[' 3 -lt 10 ']'
++ echo 'It is a one digit number'
+It is a one digit number
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano luckyno.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./luckyno.sh
++ echo 'Enter your lucky number'
+Enter your lucky number
++ read n
+999
++ '[' 999 -eq 101 ']'
++ '[' 999 -eq 510 ']'
++ '[' 999 -eq 999 ']'
++ echo 'You got 3rd prize'
+You got 3rd prize
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./luckyno.sh
++ echo 'Enter your lucky number'
+Enter your lucky number
++ read n
+ghj
++ '[' ghj -eq 101 ']'
+./luckyno.sh: line 6: [: ghj: integer expression expected
++ '[' ghj -eq 510 ']'
+./luckyno.sh: line 9: [: ghj: integer expression expected
++ '[' ghj -eq 999 ']'
+./luckyno.sh: line 12: [: ghj: integer expression expected
++ echo 'Sorry, try for the next time'
+Sorry, try for the next time
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano compare.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./compare.sh
+Are UNIX and GNU strings equal?
+1
+Is 100 equal to 100 ?
+0
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano welcome.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./welcome.sh
+./welcome.sh: line 2: warning: here-document at line 1 delimited by end-of-file (wanted `comment')
+./welcome.sh: line 1: hello: command not found
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano welcome.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./welcome.sh
+./welcome.sh: line 10: warning: here-document at line 1 delimited by end-of-file (wanted `comment')
+./welcome.sh: line 1: hello: command not found
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano welcome.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./welcome.sh
+Welcome back chitr! Today is Thursday, which is the best day of the entire week!
+Your Bash shell version is: 4.4.23(1)-release. Enjoy!
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano welcome.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./welcome.sh
+./welcome.sh: line 3: unexpected EOF while looking for matching `''
+./welcome.sh: line 13: syntax error: unexpected end of file
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano welcome.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./welcome.sh
+./welcome.sh: line 3: :hiiiiiiii:: command not found
+Welcome back chitr! Today is Thursday, which is the best day of the entire week!
+Your Bash shell version is: 4.4.23(1)-release. Enjoy!
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano welcome.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+1
+./calculator.sh: line 8: syntax error near unexpected token `then'
+./calculator.sh: line 8: `then'
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+5
++ echo 'Enter number b'
+Enter number b
++ read b
+6
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+1
++ '[' 1 -lt 4 ']'
++ '[' 1 = 1 ']'
++ echo 'sum = $ ((a+b))'
+sum = $ ((a+b))
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+5
++ echo 'Enter number b'
+Enter number b
++ read b
+2
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+1
++ '[' 1 -lt 4 ']'
++ '[' 1 = 1 ']'
++ echo 'sum = 7'
+sum = 7
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+8
++ echo 'Enter number b'
+Enter number b
++ read b
+3
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+2
+./calculator.sh: line 19: syntax error: unexpected end of file
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+5
++ echo 'Enter number b'
+Enter number b
++ read b
+2
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+2
+./calculator.sh: line 19: syntax error: unexpected end of file
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+5
++ echo 'Enter number b'
+Enter number b
++ read b
+2
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+2
+./calculator.sh: line 19: syntax error: unexpected end of file
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ 5
+bash: 5: command not found
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+5
++ echo 'Enter number b'
+Enter number b
++ read b
+2
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+2
+./calculator.sh: line 20: syntax error: unexpected end of file
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+5
++ echo 'Enter number b'
+Enter number b
++ read b
+2
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+2
++ '[' 2 -lt 5 ']'
++ '[' 2 = 1 ']'
++ '[' 2 = 2 ']'
++ echo 'diff a-b = 3'
+diff a-b = 3
++ echo 'diff b-a = -3'
+diff b-a = -3
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+5
++ echo 'Enter number b'
+Enter number b
++ read b
+2
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+4
+./calculator.sh: line 22: syntax error near unexpected token `fi'
+./calculator.sh: line 22: `fi'
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator.sh
++ echo 'Enter number a'
+Enter number a
++ read a
+5
++ echo 'Enter number b'
+Enter number b
++ read b
+3
++ echo 'Please enter a number 1 for addition 2 for subtraction'
+Please enter a number 1 for addition 2 for subtraction
++ read n
+3
+./calculator.sh: line 22: syntax error near unexpected token `fi'
+./calculator.sh: line 22: `fi'
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano easy.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano calculator1.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./calculator1.sh
+Enter two numbers
+5 6
+
+Enter (1-4) for calcuation
+5
+Enter (1-4) for calcuation
+8
+Enter (1-4) for calcuation
+1
+./calculator1.sh: line 12: 5 6 +  : syntax error in expression (error token is "6 +  ")
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano easy.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./easy.sh
++ i=0
++ '[' 0 -le 2 ']'
++ echo number:
+number:
++ (( i++ ))
++ '[' 1 -le 2 ']'
++ echo number:
+number:
++ (( i++ ))
++ '[' 2 -le 2 ']'
++ echo number:
+number:
++ (( i++ ))
++ '[' 3 -le 2 ']'
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano easy.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./easy.sh
++ i=0
++ '[' 0 -le 2 ']'
++ echo number =
+number =
++ (( i++ ))
++ '[' 1 -le 2 ']'
++ echo number =
+number =
++ (( i++ ))
++ '[' 2 -le 2 ']'
++ echo number =
+number =
++ (( i++ ))
++ '[' 3 -le 2 ']'
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano easy.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./easy.sh
++ i=0
++ '[' 0 -le 2 ']'
++ echo number = 0
+number = 0
++ (( i++ ))
++ '[' 1 -le 2 ']'
++ echo number = 1
+number = 1
++ (( i++ ))
++ '[' 2 -le 2 ']'
++ echo number = 2
+number = 2
++ (( i++ ))
++ '[' 3 -le 2 ']'
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano forexample.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./forexample.sh
++ (( counter=10 ))
++ (( counter>0 ))
++ echo -n 10
+10+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 9
+9+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 8
+8+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 7
+7+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 6
+6+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 5
+5+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 4
+4+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 3
+3+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 2
+2+ (( counter--  ))
++ (( counter>0 ))
++ echo -n 1
+1+ (( counter--  ))
++ (( counter>0 ))
++ printf '\n'
+
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano forexample.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./forexample.sh
++ (( counter=10 ))
++ (( counter>0 ))
++ echo 10
+10
++ (( counter--  ))
++ (( counter>0 ))
++ echo 9
+9
++ (( counter--  ))
++ (( counter>0 ))
++ echo 8
+8
++ (( counter--  ))
++ (( counter>0 ))
++ echo 7
+7
++ (( counter--  ))
++ (( counter>0 ))
++ echo 6
+6
++ (( counter--  ))
++ (( counter>0 ))
++ echo 5
+5
++ (( counter--  ))
++ (( counter>0 ))
++ echo 4
+4
++ (( counter--  ))
++ (( counter>0 ))
++ echo 3
+3
++ (( counter--  ))
++ (( counter>0 ))
++ echo 2
+2
++ (( counter--  ))
++ (( counter>0 ))
++ echo 1
+1
++ (( counter--  ))
++ (( counter>0 ))
++ printf '\n'
+
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano forexample.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./forexample.sh
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano forexample.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano forexample.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./forexample.sh
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano forexample.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./forexample.sh
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano forexample.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./forexample.sh
+10 9 8 7 6 5 4 3 2 1
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ nano forexample.sh
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ ./forexample.sh
+10 -n10
+10
+9 -n9
+9
+8 -n8
+8
+7 -n7
+7
+6 -n6
+6
+5 -n5
+5
+4 -n4
+4
+3 -n3
+3
+2 -n2
+2
+1 -n1
+1
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ history
+    1  history
+    2  curl -s "https://get.sdkman.io" | bash
+    3  sdk install java 11.0.2-open
+    4  sdk install java 11.0.2-open
+    5  sdk install gradle
+    6  clear
+    7  exercism download --exercise hello-world --track java
+    8  ls -l
+    9  git clone"https://github.com/edurekavivekh/linux-content"
+   10  git clone https://github.com/edurekavivekh/linux-content
+   11  touch abc.txt def.doc
+   12  ls
+   13  nano text.txt
+   14  ps -elf
+   15  kill -9 1611
+   16  ls
+   17  cd bridgelabz
+   18  cd BRIDGELABZ
+   19  a=8
+   20  b=10
+   21  echo $a + $b
+   22  $(a+b)
+   23  echo $(a+b)
+   24  echo $((a+b))
+   25  [ 100 -eq 50]; echo $?
+   26  [ 100 -eq 100]; echo $?
+   27  [ 100 -eq 100 ]; echo $?
+   28  [ 100 -eq 50 ]; echo $?
+   29  echo [ 10 -eq 20 ]
+   30  [ "a" = "b" ]; echo $?
+   31  [ "a" = "a" ]; echo $?
+   32  $ (( $a + $b))
+   33  $(( $a + $b))
+   34  $(( $a + $b))
+   35  #!/bin/bash -x
+   36  #Simple If Demo
+   37  echo "Please enter a number"
+   38  read n
+   39  then
+   40  echo "It is a one digit number"
+   41  else
+   42  echo "It is not a one digit number"
+   43  nano ifelse
+   44  nano ifelse.sh
+   45  ./ ifelse.sh
+   46  ./ifelse.sh
+   47  nano luckyno.sh
+   48  ./luckyno.sh
+   49  ./luckyno.sh
+   50  nano compare.sh
+   51  ./compare.sh
+   52  nano welcome.sh
+   53  ./welcome.sh
+   54  nano welcome.sh
+   55  ./welcome.sh
+   56  nano welcome.sh
+   57  ./welcome.sh
+   58  nano welcome.sh
+   59  ./welcome.sh
+   60  nano welcome.sh
+   61  ./welcome.sh
+   62  nano welcome.sh
+   63  nano calculator.sh
+   64  ./calculator.sh
+   65  nano calculator.sh
+   66  ./calculator.sh
+   67  nano calculator.sh
+   68  ./calculator.sh
+   69  nano calculator.sh
+   70  ./calculator.sh
+   71  nano calculator.sh
+   72  ./calculator.sh
+   73  nano calculator.sh
+   74  ./calculator.sh
+   75  nano calculator.sh
+   76  5
+   77  ./calculator.sh
+   78  nano calculator.sh
+   79  ./calculator.sh
+   80  nano calculator.sh
+   81  ./calculator.sh
+   82  nano calculator.sh
+   83  ./calculator.sh
+   84  nano calculator.sh
+   85  nano easy.sh
+   86  nano calculator1.sh
+   87  ./calculator1.sh
+   88  nano easy.sh
+   89  ./easy.sh
+   90  nano easy.sh
+   91  ./easy.sh
+   92  nano easy.sh
+   93  ./easy.sh
+   94  nano forexample.sh
+   95  ./forexample.sh
+   96  nano forexample.sh
+   97  ./forexample.sh
+   98  nano forexample.sh
+   99  ./forexample.sh
+  100  nano forexample.sh
+  101  nano forexample.sh
+  102  ./forexample.sh
+  103  nano forexample.sh
+  104  ./forexample.sh
+  105  nano forexample.sh
+  106  ./forexample.sh
+  107  nano forexample.sh
+  108  ./forexample.sh
+  109  history
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$ for files in `ls *.txt`;do echo $files;done
+abc.txt
+
+chitr@LAPTOP-1578T343 MINGW64 ~
+$
+
